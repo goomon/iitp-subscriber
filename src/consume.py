@@ -15,10 +15,15 @@ logger = ConsumerLogger()
 
 def main():
     # Configuration logs
+    logger.info(f"KAFKA_HOST={KAFKA_HOST}")
     logger.info(f"SASL_USER={SASL_USERNAME}")
     logger.info(f"SASL_PASSWORD={SASL_PASSWORD}")
-    logger.info(f"CONSUMED_TOPIC={CONSUMED_TOPIC}")
+    logger.info(f"CONSUMED_TOPIC={TOPIC}")
     logger.info(f"CONSUMER_GROUP_ID={CONSUMER_GROUP_ID}")
+    logger.info(f"CONSUMER_INSTANCE_ID={CONSUMER_INSTANCE_ID}")
+    logger.info(f"MAX_POLL_MS={MAX_POLL_MS}")
+    logger.info(f"MAX_POLL_RECORDS={MAX_POLL_RECORDS}")
+    logger.info(f"POLL_RECORDS={POLL_RECORDS}")
 
     # Load configuration file.
     config_parser = ConfigParser()
