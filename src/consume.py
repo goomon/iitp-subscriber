@@ -29,7 +29,8 @@ def main():
     config_parser = ConfigParser()
     config_parser.read("./config/client.ini")
     props: dict[str, str] = dict(config_parser["connections"])
-    props["group.id"] = str(uuid.uuid4())
+    props["group.id"] = str(uuid.uuid4()) if CONSUMER_GROUP_ID == "" else CONSUMER_GROUP_ID
+    props["group.instance.id"] = str(uuid.uuid4()) if CONSUMER_INSTANCE_ID == "" else CONSUMER_INSTANCE_ID
     props["auto.offset.reset"] = "earliest"
 
     # Define consumer object.
