@@ -54,6 +54,7 @@ class ChestDeviceSensorValue(TypedDict):
 
 class ChestDeviceSensorRecord(TypedDict):
     user_id: str
+    connection_id: int
     timestamp: int
     window_size: int
     value: List[ChestDeviceSensorValue]
