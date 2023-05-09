@@ -25,6 +25,7 @@ def main():
     logger.info(f"CONSUMER_INSTANCE_ID={KafkaConfigurations.consumer_instance_id}")
     logger.info(f"MAX_POLL_INTERVAL_MS={KafkaConfigurations.max_poll_interval_ms}")
     logger.info(f"MAX_POLL_RECORDS={KafkaConfigurations.max_poll_records}")
+    logger.info(f"FLUSH_TIMEOUT={KafkaConfigurations.processor_flush_timeout}")
 
     # Load configuration file.
     config_parser = ConfigParser()
@@ -46,7 +47,7 @@ def main():
     with get_context_db() as db:
         try:
             while True:
-                if time.time() - last_polled >= 20:
+                if time.time() - last_polled >= 60:
                     logger.debug("poll timeout")
                     break
                 msg: Optional[Message] = consumer.poll(1.0)

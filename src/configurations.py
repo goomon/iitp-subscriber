@@ -25,3 +25,5 @@ class KafkaConfigurations:
     consumer_instance_id = str(uuid.uuid4()) if os.getenv("CONSUMER_INSTANCE_ID") is None else os.getenv("CONSUMER_INSTANCE_ID")
     max_poll_interval_ms = 300000 if os.getenv("MAX_POLL_INTERVAL_MS") is None else os.getenv("MAX_POLL_INTERVAL_MS")
     max_poll_records = 500 if os.getenv("MAX_POLL_RECORDS") is None else os.getenv("MAX_POLL_RECORDS")
+    processor_flush_timeout = 20 if os.getenv("FLUSH_TIMEOUT") is None else int(os.getenv("FLUSH_TIMEOUT"))
+
