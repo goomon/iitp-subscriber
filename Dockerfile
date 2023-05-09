@@ -7,4 +7,4 @@ ADD src /src
 
 WORKDIR /src
 
-CMD ["python", "consume.py"]
+CMD ["python", "main.py"]
