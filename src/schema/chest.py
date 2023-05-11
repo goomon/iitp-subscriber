@@ -58,3 +58,4 @@ class ChestDeviceSensorRecord(TypedDict):
     timestamp: int
     window_size: int
     value: List[ChestDeviceSensorValue]
+    label: int

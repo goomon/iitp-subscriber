@@ -27,3 +27,6 @@ class KafkaConfigurations:
     max_poll_records = 500 if os.getenv("MAX_POLL_RECORDS") is None else os.getenv("MAX_POLL_RECORDS")
     processor_flush_timeout = 20 if os.getenv("FLUSH_TIMEOUT") is None else int(os.getenv("FLUSH_TIMEOUT"))
 
+
+class InferenceConfiguration:
+    model_path = 'model/small_model_checkpoint.joblib' if os.getenv("MODEL_PATH") is None else os.getenv("MODEL_PATH")
