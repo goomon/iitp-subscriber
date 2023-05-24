@@ -128,33 +128,34 @@
 To store data to database, you need to follow steps below.
 
 1. First, open database session(connection).
-  * You can use `get_context_db()` to make db session.
-  * This function can be used by context manager; `with`
-    ```python
-    with get_context_db() as db:
-        pass
-    ```
+   * You can use `get_context_db()` to make db session.
+   * This function can be used by context manager; `with`
+
+   ```python
+   with get_context_db() as db:
+       pass
+   ```
 
 2. Add data which you want to store to db session.
-  ```python
-  from db import models
-  data = models.User(
-      age=25,
-      gender="male",
-  )
-  db.add(data)
-  ```
+   ```python
+   from db import models
+   data = models.User(
+       age=25,
+       gender="male",
+   )
+   db.add(data)
+   ```
 
-  * Even though you successfully executed `db.add(data)`, the `data` is not yet stored in database.
-  * Until you execute `commit()` to db session, data is not stored in database.
+   * Even though you successfully executed `db.add(data)`, the `data` is not yet stored in database.
+   * Until you execute `commit()` to db session, data is not stored in database.
 
 3. Commit db session.
 
-  ```python
-  db.commit()
-  ```
+   ```python
+   db.commit()
+   ```
 
 4. Close db connection.
 
-  * Because you already use context manager, you do not care of closing db session.
-  * When context manager that is managing db session finishes, db session is automatically closed.
+   * Because you already use context manager, you do not care of closing db session.
+   * When context manager that is managing db session finishes, db session is automatically closed.
